@@ -1,0 +1,19 @@
+body{
+  margin: 0;
+}
+main {
+  margin: auto;
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+    background-color: purple;
+}
+
+#cube {
+  top: 50%;
+  left: 50%;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+}

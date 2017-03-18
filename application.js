@@ -45,10 +45,10 @@ console.log("shit");
 }
 
 console.log("event", event);
-                cube.style.top = Xaxis-- + velocity + "px";
+                cube.style.top = Xaxis++ + velocity + "px";
             }
             if (event.key == 'ArrowDown') {
-                return cube.style.top = Xaxis++ + velocity++ + "px";
+                return cube.style.top = Xaxis-- + velocity++ + "px";
                 console.log("fleche bas");
 
             }

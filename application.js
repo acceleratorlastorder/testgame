@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function start() {
 
     loadElement();
-   keymap();
+    keymap();
 };
 
 function loadElement() {
@@ -36,33 +36,28 @@ function keymap() {
             velocity = 0;
             return; // Do nothing if the event was already processed
         } else {
-          diagonals(event, Xaxis, Yaxis, velocity);
 
             console.log("velocity", velocity);
             if (event.key == 'ArrowUp') {
-if (event.key == 'ArrowLeft') {
-console.log("shit");
-}
-
-console.log("event", event);
-                cube.style.top = Xaxis++ + velocity + "px";
+                cube.style.top = Xaxis-- + velocity++ + "px";
+                console.log("arrowUp: ", Xaxis, "velocity", velocity);
             }
             if (event.key == 'ArrowDown') {
-                return cube.style.top = Xaxis-- + velocity++ + "px";
-                console.log("fleche bas");
+                return cube.style.top = Xaxis++ + velocity++ + "px";
+                  console.log("arrowDown: ", Xaxis, "velocity", velocity);
 
             }
             if (event.key == 'ArrowLeft') {
-                cube.style.left = Yaxis-- + velocity + "px";
-                console.log("fleche gauche");
+                cube.style.left = Yaxis-- + velocity++ + "px";
+                console.log("arrowLeft: ", Yaxis, "velocity", velocity);
 
             }
             if (event.key == 'ArrowRight') {
-                cube.style.left = Yaxis++ + velocity + "px";
-                console.log("fleche droite");
+                cube.style.left = Yaxis++ + velocity++ + "px";
+                console.log("arrowRight: ", Yaxis, "velocity", velocity);
 
             }
-            console.log("event", event);
+            console.log("event: ", event);
             // Cancel the default action to avoid it being handled twice
             event.preventDefault();
         }
@@ -71,8 +66,6 @@ console.log("event", event);
 
 }
 
-
-/*
 var keys = {
     length: 0
 };
@@ -81,7 +74,7 @@ window.onkeydown = function(e) {
     if (!keys[e.keyCode]) {
         keys[e.keyCode] = true;
         keys.length++;
-        document.body.innerHTML = "You are pressing " + keys.length + " keys at the same time." + keys;
+        console.log("You are pressing " + keys.length + " keys at the same time." + keys);
         console.log(keys);
     }
 }
@@ -92,24 +85,21 @@ window.onkeyup = function(e) {
         if (keys.length) {
             keys.length--;
         }
-        document.body.innerHTML = "You are pressing " + keys.length + " keys at the same time." + keys;
+        console.log("You are pressing " + keys.length + " keys at the same time." + keys);
         console.log(keys);
     }
 }
 
 function clearKeys() {
+    console.log("lel");
     for (n in keys) {
         n = false
-        console.log("lel");
     };
     keys.length = 0;
-    document.body.innerHTML = "You are pressing " + 0 + " keys at the same time.";
+    console.log("You are pressing " + 0 + " keys at the same time.");
 }
 
-document.body.innerHTML = "You are pressing 0 keys at the same time.";
-window.onblur = clearKeys;
 
-*/
 function diagonals(event, Xaxis, Yaxis, velocity) {
     let arrowUsed = event.key;
     if (event.key == 'ArrowUp' && event.key == 'ArrowLeft') {

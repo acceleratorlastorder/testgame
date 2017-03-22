@@ -4,15 +4,70 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 });
 
-
-
-
-
 function start() {
 
     loadElement();
-    keymap();
+    //  keymap();
+    gamepadlistener()
 };
+
+function gamepadlistener() {
+    window.addEventListener("gamepadconnected", function(e) {
+        var gp = navigator.getGamepads()[0];
+        console.log("gamepads: ", gp);
+        console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+            gp.index, gp.id,
+            gp.buttons.length, gp.axes.length);
+
+
+        setInterval(gamepadmapping, 250);
+
+
+
+
+
+        function gamepadmapping() {
+            console.log("lel", gp);
+            let buttons = gp.buttons;
+            let buttonsnumber = buttons.length;
+            console.log("carré: ", buttons[0].pressed);
+            console.log("croix: ", buttons[1].pressed);
+            console.log("rond: ", buttons[2].pressed);
+            console.log("triangle: ", buttons[3].pressed);
+            console.log("L1: ", buttons[4].pressed);
+            console.log("R1: ", buttons[5].pressed);
+            console.log("L2: ", buttons[6].pressed);
+            console.log("R2: ", buttons[7].pressed);
+            console.log("share: ", buttons[8].pressed);
+            console.log("option: ", buttons[9].pressed);
+            console.log("L3: ", buttons[10].pressed);
+            console.log("R3: ", buttons[11].pressed);
+            console.log("PS boutton: ", buttons[12].pressed);
+            console.log("pad tactile: ", buttons[13].pressed);
+            console.log("nc: ", buttons[14].pressed);
+            console.log("nc: ", buttons[15].pressed);
+            console.log("nc: ", buttons[16].pressed);
+            console.log("nc: ", buttons[17].pressed);
+
+
+
+            console.log("boutons: ", buttons);
+            /*          for (var i = 0; i < buttons.length; i++) {
+                let buttons[i] = buttons[i].pressed;
+                console.log("i: ", i, boutons, "bouton");
+            }
+            console.log("lollol", button0);
+*/
+
+
+        }
+    });
+
+
+
+
+}
+
 
 function loadElement() {
     let cube = document.getElementById('cube');
@@ -26,12 +81,13 @@ function loadElement() {
 }
 
 
-
 function keymap() {
     let Xaxis = cube.offsetTop;
     let Yaxis = cube.offsetLeft;
     let velocity = 0;
-    window.addEventListener("keydown", function(event) {
+    let zone = document.getElementById('testzone');
+    console.log("zone: ", zone);
+    zone.focus().addEventListener("onkeydown", function(event) {
         if (event.defaultPrevented) {
             velocity = 0;
             return; // Do nothing if the event was already processed
@@ -44,7 +100,7 @@ function keymap() {
             }
             if (event.key == 'ArrowDown') {
                 return cube.style.top = Xaxis++ + velocity++ + "px";
-                  console.log("arrowDown: ", Xaxis, "velocity", velocity);
+                console.log("arrowDown: ", Xaxis, "velocity", velocity);
 
             }
             if (event.key == 'ArrowLeft') {
@@ -64,46 +120,4 @@ function keymap() {
         velocity = 0;
     }, true);
 
-}
-
-var keys = {
-    length: 0
-};
-
-window.onkeydown = function(e) {
-    if (!keys[e.keyCode]) {
-        keys[e.keyCode] = true;
-        keys.length++;
-        console.log("You are pressing " + keys.length + " keys at the same time." + keys);
-        console.log(keys);
-    }
-}
-
-window.onkeyup = function(e) {
-    if (keys[e.keyCode]) {
-        keys[e.keyCode] = false;
-        if (keys.length) {
-            keys.length--;
-        }
-        console.log("You are pressing " + keys.length + " keys at the same time." + keys);
-        console.log(keys);
-    }
-}
-
-function clearKeys() {
-    console.log("lel");
-    for (n in keys) {
-        n = false
-    };
-    keys.length = 0;
-    console.log("You are pressing " + 0 + " keys at the same time.");
-}
-
-
-function diagonals(event, Xaxis, Yaxis, velocity) {
-    let arrowUsed = event.key;
-    if (event.key == 'ArrowUp' && event.key == 'ArrowLeft') {
-        console.log("double");
-    }
-    console.log("dans diagonals", event.key, "arrowUsed", arrowUsed);
 }

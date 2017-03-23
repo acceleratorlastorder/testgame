@@ -29,7 +29,9 @@ function gamepadlistener() {
         function gamepadmapping() {
             console.log("lel", gp);
             let buttons = gp.buttons;
+            let axes = gp.axes;
             let buttonsnumber = buttons.length;
+            console.log(axes);
             console.log("carré: ", buttons[0].pressed);
             console.log("croix: ", buttons[1].pressed);
             console.log("rond: ", buttons[2].pressed);
@@ -48,8 +50,9 @@ function gamepadlistener() {
             console.log("nc: ", buttons[15].pressed);
             console.log("nc: ", buttons[16].pressed);
             console.log("nc: ", buttons[17].pressed);
-
-
+            console.log("nc: ", axes[0], "nc: ", axes[1]);
+            console.log("nc: ", axes[2], "nc: ", axes[3]);
+            console.log("nc: ", axes[4], "nc: ", axes[5]);
 
             console.log("boutons: ", buttons);
             /*          for (var i = 0; i < buttons.length; i++) {

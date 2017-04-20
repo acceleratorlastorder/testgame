@@ -41,8 +41,8 @@ function gamepadlistener() {
         setInterval(gamepadmapping, interval);
 
         function gamepadmapping() {
-            console.log("boutons: ", buttons);
-            console.log("lel", gp);
+            //  console.log("boutons: ", buttons);
+            //console.log("lel", gp);
             buttons = gp.buttons;
             axes = gp.axes;
             buttonsnumber = buttons.length;
@@ -52,28 +52,28 @@ function gamepadlistener() {
             for (var i = 0; i < 8; i++) {
                 statusli[i + 18].innerHTML = axes[i];
             }
-        /*    console.log(axes);
-            console.log("carré: ", buttons[0].pressed);
-            console.log("croix: ", buttons[1].pressed);
-            console.log("rond: ", buttons[2].pressed);
-            console.log("triangle: ", buttons[3].pressed);
-            console.log("L1: ", buttons[4].pressed);
-            console.log("R1: ", buttons[5].pressed);
-            console.log("L2: ", buttons[6].pressed);
-            console.log("R2: ", buttons[7].pressed);
-            console.log("share: ", buttons[8].pressed);
-            console.log("option: ", buttons[9].pressed);
-            console.log("L3: ", buttons[10].pressed);
-            console.log("R3: ", buttons[11].pressed);
-            console.log("PS boutton: ", buttons[12].pressed);
-            console.log("pad tactile: ", buttons[13].pressed);
-            console.log("nc: ", buttons[14].pressed);
-            console.log("nc: ", buttons[15].pressed);
-            console.log("nc: ", buttons[16].pressed);
-            console.log("nc: ", buttons[17].pressed);
-            console.log("nc: ", axes[0], "nc: ", axes[1]);
-            console.log("nc: ", axes[2], "nc: ", axes[5]);
-            console.log("nc: ", axes[4], "nc: ", axes[3]);*/
+            /*    console.log(axes);
+                console.log("carré: ", buttons[0].pressed);
+                console.log("croix: ", buttons[1].pressed);
+                console.log("rond: ", buttons[2].pressed);
+                console.log("triangle: ", buttons[3].pressed);
+                console.log("L1: ", buttons[4].pressed);
+                console.log("R1: ", buttons[5].pressed);
+                console.log("L2: ", buttons[6].pressed);
+                console.log("R2: ", buttons[7].pressed);
+                console.log("share: ", buttons[8].pressed);
+                console.log("option: ", buttons[9].pressed);
+                console.log("L3: ", buttons[10].pressed);
+                console.log("R3: ", buttons[11].pressed);
+                console.log("PS boutton: ", buttons[12].pressed);
+                console.log("pad tactile: ", buttons[13].pressed);
+                console.log("nc: ", buttons[14].pressed);
+                console.log("nc: ", buttons[15].pressed);
+                console.log("nc: ", buttons[16].pressed);
+                console.log("nc: ", buttons[17].pressed);
+                console.log("nc: ", axes[0], "nc: ", axes[1]);
+                console.log("nc: ", axes[2], "nc: ", axes[5]);
+                console.log("nc: ", axes[4], "nc: ", axes[3]);*/
         }
     });
 
@@ -109,8 +109,8 @@ function keymap() {
                 console.log("arrowUp: ", Xaxis, "velocity", velocity);
             }
             if (event.key == 'ArrowDown') {
-                return cube.style.top = Xaxis++ + velocity++ + "px";
                 console.log("arrowDown: ", Xaxis, "velocity", velocity);
+                return cube.style.top = Xaxis++ + velocity++ + "px";
 
             }
             if (event.key == 'ArrowLeft') {

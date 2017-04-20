@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+﻿document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM loaded launching functions");
     start();
 
@@ -11,6 +11,24 @@ function start() {
     gamepadlistener()
 };
 
+let inputbutton = document.getElementById("button");
+inputbutton.addEventListener('click', settheinterval, false);
+let inputvalue;
+let info = document.getElementById("info");
+let interval = 500;
+let cross, triangle, circle, square, dpadleft, dpadtop, dpadright, dpadbottom, l1, l2, l3, r1, r2, r3, share, options, psbutton, touchpad;
+let statusli = document.querySelectorAll(".status");
+
+
+function settheinterval() {
+
+    inputvalue = document.getElementById("input").value;
+    interval = inputvalue;
+    info.innerHTML = "interval is = " + inputvalue + " ms";
+
+}
+
+
 function gamepadlistener() {
     window.addEventListener("gamepadconnected", function(e) {
         var gp = navigator.getGamepads()[0];
@@ -18,20 +36,23 @@ function gamepadlistener() {
         console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
             gp.index, gp.id,
             gp.buttons.length, gp.axes.length);
+        let buttons, axes, buttonsnumber;
 
-
-        setInterval(gamepadmapping, 250);
-
-
-
-
+        setInterval(gamepadmapping, interval);
 
         function gamepadmapping() {
+            console.log("boutons: ", buttons);
             console.log("lel", gp);
-            let buttons = gp.buttons;
-            let axes = gp.axes;
-            let buttonsnumber = buttons.length;
-            console.log(axes);
+            buttons = gp.buttons;
+            axes = gp.axes;
+            buttonsnumber = buttons.length;
+            for (var i = 0; i < buttons.length; i++) {
+                statusli[i].innerHTML = buttons[i].pressed;
+            }
+            for (var i = 0; i < 8; i++) {
+                statusli[i + 18].innerHTML = axes[i];
+            }
+        /*    console.log(axes);
             console.log("carré: ", buttons[0].pressed);
             console.log("croix: ", buttons[1].pressed);
             console.log("rond: ", buttons[2].pressed);
@@ -51,18 +72,8 @@ function gamepadlistener() {
             console.log("nc: ", buttons[16].pressed);
             console.log("nc: ", buttons[17].pressed);
             console.log("nc: ", axes[0], "nc: ", axes[1]);
-            console.log("nc: ", axes[2], "nc: ", axes[3]);
-            console.log("nc: ", axes[4], "nc: ", axes[5]);
-
-            console.log("boutons: ", buttons);
-            /*          for (var i = 0; i < buttons.length; i++) {
-                let buttons[i] = buttons[i].pressed;
-                console.log("i: ", i, boutons, "bouton");
-            }
-            console.log("lollol", button0);
-*/
-
-
+            console.log("nc: ", axes[2], "nc: ", axes[5]);
+            console.log("nc: ", axes[4], "nc: ", axes[3]);*/
         }
     });
 
@@ -73,10 +84,6 @@ function gamepadlistener() {
 
 
 function loadElement() {
-    let cube = document.getElementById('cube');
-
-
-    console.log(cube);
 
 
     console.log('element loaded');

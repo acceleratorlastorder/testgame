@@ -1,22 +1,86 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>game test</title>
+    <title>Remote</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>test game</h1>
-<main id="testzone">
-<div id="cube">
-</div>
-</main>
-<div class="boutonsdroite">
-  <p class="triangle">△</p>
-  <p class="croix">X</p>
-  <p class="rond">O</p>
-  <p class="carré">◼</p>
-</div>
-    <script src="application.js" charset="utf-8"></script>
-  </body>
+</head>
+
+<body>
+    <p>set the interval between each refresh of the gamepad status(low value may make the browser crash or being slow)</p>
+    <input id="input" type="text" name="" value="">
+    <button id="button" type="button" name="button">change the interval</button>
+    <p id="info"></p>
+    <main>
+        <section id="name">
+            <ul>
+                Button:
+                <li>Square</li>
+                <li>Cross</li>
+                <li>Circle</li>
+                <li>Triangle</li>
+                <li>L1</li>
+                <li>R1</li>
+                <li>L2</li>
+                <li>R2</li>
+                <li>Share</li>
+                <li>Option</li>
+                <li>L3</li>
+                <li>R3</li>
+                <li>PS button</li>
+                <li>Pad tactile</li>
+                <li>Dpad left</li>
+                <li>Dpad top</li>
+                <li>Dpad right</li>
+                <li>Dpad bottom</li>
+                <li>left joystick X</li>
+                <li>left joystick Y</li>
+                <li>Right joystick X</li>
+                <li>Right joystick Y</li>
+                <li>R2 joystick values</li>
+                <li>L2 joystick value</li>
+                <li>N/C</li>
+                <li>N/C</li>
+
+            </ul>
+        </section>
+        <section id="status">
+            <ul>
+                status:
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+                <li class="status"></li>
+            </ul>
+        </section>
+    </main>
+
+
+
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
 </html>

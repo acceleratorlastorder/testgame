@@ -1,1 +1,1 @@
-WEBSITE: https://acceleratorlastorder.github.io/testgame/
+current test: https://acceleratorlastorder.github.io/testgame/test/
